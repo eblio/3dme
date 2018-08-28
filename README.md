@@ -17,7 +17,7 @@ The /me command but it draw it in 3D
 * Time on screen : ```client.lua``` line 2 : ```local time = 500```
 * Enable or disable the log : ```server.lua``` line 1 : ```local logEnabled = true```
 
-## Patch
+## Update
 * The text display an exact amount of time (thanks to @SaltyGrandpa)
 * Added "the person" at the beginning of the text (```Line 7``` if you want to change the language)
 * Using /me multiple times doesn't make it unreadable
