@@ -1,9 +1,10 @@
 local color = {r = 37, g = 175, b = 134, alpha = 255} -- Color of the text 
 local font = 0 -- Font of the text
-local time = 500 -- Duration of the display of the text : 500 ~= 13sec
+local time = 7000 -- Duration of the display of the text : 1000ms = 1sec
+local nbrDisplaying = 0
 
 RegisterCommand('me', function(source, args)
-    local text = '*'
+    local text = '* the person' -- edit here if you want to change the language : EN: the person / FR: la personne
     for i = 1,#args do
         text = text .. ' ' .. args[i]
     end
@@ -13,17 +14,25 @@ end)
 
 RegisterNetEvent('3dme:triggerDisplay')
 AddEventHandler('3dme:triggerDisplay', function(text, source)
-    Display(GetPlayerFromServerId(source), text)
+    local offset = 1 + (nbrDisplaying*0.14)
+    Display(GetPlayerFromServerId(source), text, offset)
 end)
 
-function Display(mePlayer, text)
-    local timer = 0
-    while timer < time do
-        Wait(0)
-        timer = timer + 1
-        local coords = GetEntityCoords(GetPlayerPed(mePlayer), false)
-        DrawText3D(coords['x'], coords['y'], coords['z']+1, text)
-    end
+function Display(mePlayer, text, offset)
+    local displaying = true
+    Citizen.CreateThread(function()
+        Wait(time)
+        displaying = false
+    end)
+    Citizen.CreateThread(function()
+        nbrDisplaying = nbrDisplaying + 1
+        while displaying do
+            Wait(0)
+            local coords = GetEntityCoords(GetPlayerPed(mePlayer), false)
+            DrawText3D(coords['x'], coords['y'], coords['z']+offset, text)
+        end
+        nbrDisplaying = nbrDisplaying - 1
+    end)
 end
 
 function DrawText3D(x,y,z, text)
