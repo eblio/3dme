@@ -1,7 +1,7 @@
-local color = {r = 37, g = 175, b = 134, alpha = 255} -- Color of the text 
+local color = {r = 74, g = 39, b = 216, alpha = 255} -- Color of the text 
 local font = 0 -- Font of the text
 local time = 7000 -- Duration of the display of the text : 1000ms = 1sec
-local nbrDisplaying = 0
+local nbrDisplaying = 1
 
 RegisterCommand('me', function(source, args)
     local text = '* the person' -- edit here if you want to change the language : EN: the person / FR: la personne
@@ -26,10 +26,15 @@ function Display(mePlayer, text, offset)
     end)
     Citizen.CreateThread(function()
         nbrDisplaying = nbrDisplaying + 1
+        print(nbrDisplaying)
         while displaying do
             Wait(0)
-            local coords = GetEntityCoords(GetPlayerPed(mePlayer), false)
-            DrawText3D(coords['x'], coords['y'], coords['z']+offset, text)
+            local coordsMe = GetEntityCoords(GetPlayerPed(mePlayer), false)
+            local coords = GetEntityCoords(PlayerPedId(), false)
+            local dist = GetDistanceBetweenCoords(coordsMe['x'], coordsMe['y'], coordsMe['z'], coords['x'], coords['y'], coords['z'], true)
+            if dist < 50 then
+                DrawText3D(coordsMe['x'], coordsMe['y'], coordsMe['z']+offset, text)
+            end
         end
         nbrDisplaying = nbrDisplaying - 1
     end)
@@ -51,8 +56,8 @@ function DrawText3D(x,y,z, text)
         SetTextColour(color.r, color.g, color.b, color.alpha)
         SetTextDropshadow(0, 0, 0, 0, 255)
         SetTextEdge(2, 0, 0, 0, 150)
-        SetTextDropShadow()
-        SetTextOutline()
+        --SetTextDropShadow()
+        --SetTextOutline()
         SetTextEntry("STRING")
         SetTextCentre(true)
         AddTextComponentString(text)
