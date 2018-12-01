@@ -1,12 +1,12 @@
 # 3D /me
-The /me command but it draw it in 3D
+The /me command but it draws it in 3D (and it has log).
 
-<img src=https://i.imgur.com/VUO7GWD.jpg>
+<img src=https://imgur.com/vexru3M.png>
 
 ## Installation
 * Download the resource ;
 * Drag and drop it in your resources folder ;
-* Add ```start 3dme```to you ```server.cfg```.
+* Add ```start 3dme``` to you ```server.cfg```.
 
 ## How to use
 * In the chat type /me followed by your action.
@@ -18,6 +18,7 @@ The /me command but it draw it in 3D
 * Enable or disable the log : ```server.lua``` line 1 : ```local logEnabled = true```
 
 ## Update
+#### V1.1
 * The text display an exact amount of time (thanks to @SaltyGrandpa)
 * Added "the person" at the beginning of the text (```Line 7``` if you want to change the language)
 * Using /me multiple times doesn't make it unreadable
