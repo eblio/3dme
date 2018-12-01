@@ -19,9 +19,13 @@ The /me command but it draws it in 3D (and it has log).
 
 ## Update
 #### V1.1
-* The text display an exact amount of time (thanks to @SaltyGrandpa)
-* Added "the person" at the beginning of the text (```Line 7``` if you want to change the language)
-* Using /me multiple times doesn't make it unreadable
+* The text display an exact amount of time (thanks to @SaltyGrandpa).
+* Added "the person" at the beginning of the text (```Line 7``` if you want to change the language).
+* Using /me multiple times doesn't make it unreadable.
+#### V1.2
+* Bugs fixes.
+* Changed the native color and removed the shadow and the outline (you can still reactivate it).
+* Now draw when you are close to the person (50 m).
 
 ## Note
 * This couldn't work if you use a custom chat resource.
