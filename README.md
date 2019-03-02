@@ -8,6 +8,7 @@ The /me command but it draws it in 3D (and it has log).
 * Drag and drop it in your resources folder ;
 * Add ```start 3dme``` to you ```server.cfg```.
 
+
 ## How to use
 * In the chat type /me followed by your action.
 
