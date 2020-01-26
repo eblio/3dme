@@ -29,7 +29,7 @@ The /me command but it's 3D printed.
 * Now send a chat message to the people close to the person ;
 * Can now draw a background to the text ;
 * Added the options to draw a dropshadow.
-### V2.0
+#### V2.0
 * The command is now server sided ;
 * No longer creates logs, you will have to use a **real** log resource ;
 * No longer prints the action in the chat ;
