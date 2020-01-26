@@ -1,25 +1,20 @@
 # 3D /me
-The /me command but it draws it in 3D (and it has log).
+The /me command but it's 3D printed.
 
-<img src=https://imgur.com/vexru3M.png>
-<img src=https://imgur.com/k8z57Ws.png>
+<img src=https://imgur.com/lJZbcGA.png>
 
 ## Installation
 * Download the resource ;
-* Drag and drop it in your resources folder ;
+* Drag and drop it into your resources folder ;
 * Add ```start 3dme``` to you ```server.cfg```.
 
 ## How to use
-* In the chat type /me followed by your action.
+* In the chat, type /me followed by your action.
 
 ## Options 
-* Color of the text : ```client.lua``` line 2 : ```local color = {r = 37, g = 175, b = 134, alpha = 255}```
-* Font of the text : ```client.lua``` line 3 : ```local font = 0``` Available fonts : https://imgur.com/a/oV3ciWs
-* Time on screen : ```client.lua``` line 4 : ```local time = 500```
-* Enable or disable the dropshadow : ```client.lua``` line 10 : ```local dropShadow = true```
-* Enable or disable the log : ```server.lua``` line 1 : ```local logEnabled = true```
-* Enable or disable chat messages : ```client.lua``` line 9 : ```local chatMessage = false```
-* Background : ```client.lua``` line 5-8 : ```local chatMessage = false```
+* Color of the text : ```client.lua``` line 14 : ```local color = { r = 230, g = 230, b = 230, a = 255 }```
+* Font of the text : ```client.lua``` line 15 : ```local font = 0``` Available fonts : https://imgur.com/a/oV3ciWs
+* Time on screen : ```client.lua``` line 4 : ```local displayTime = 5000```
 
 ## Updates
 #### V1.1
@@ -34,7 +29,14 @@ The /me command but it draws it in 3D (and it has log).
 * Now send a chat message to the people close to the person ;
 * Can now draw a background to the text ;
 * Added the options to draw a dropshadow.
+### V2.0
+* The command is now server sided ;
+* No longer creates logs, you will have to use a **real** log resource ;
+* No longer prints the action in the chat ;
+* Removed some design options (background and dropshadow) as it's no coherent with the idea I had on the resource ;
+* The code has been globally updated, more comments, more optimisation ;
+* Some bugs have been fixed ;
 
 ## Note
 * This may not work if are you using a custom chat resource.
-* This could conflict with other /me scripts (just disable them).
+* This could conflict with other /me scripts (disable them).
