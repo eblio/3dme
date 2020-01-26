@@ -35,7 +35,7 @@ The /me command but it's 3D printed.
 * No longer prints the action in the chat ;
 * Removed some design options (background and dropshadow) as it's no coherent with the idea I had on the resource ;
 * The code has been globally updated, more comments, more optimisation ;
-* Some bugs have been fixed ;
+* Some bugs have been fixed.
 
 ## Note
 * This may not work if are you using a custom chat resource.
