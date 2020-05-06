@@ -101,6 +101,9 @@ end
 
 RegisterNetEvent('3dme:shareDisplay')
 AddEventHandler('3dme:shareDisplay', function(text, serverId)
-    local ped = GetPlayerPed(GetPlayerFromServerId(serverId))
-    Display(ped, text)
+    local player = GetPlayerFromServerId(serverId)
+    if player ~= -1 then
+        local ped = GetPlayerPed(player)
+        Display(ped, text)
+    end
 end)
