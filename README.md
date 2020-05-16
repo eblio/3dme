@@ -36,6 +36,9 @@ The /me command but it's 3D printed.
 * Removed some design options (background and dropshadow) as it's no coherent with the idea I had on the resource ;
 * The code has been globally updated, more comments, more optimisation ;
 * Some bugs have been fixed.
+#### V2.1
+* Added Onesync Infinity support thanks to *@glitchdetector* ;
+* Replaced `__resource.lua` by its new version `fxmanifest.lua`.
 
 ## Note
 * This may not work if are you using a custom chat resource.
