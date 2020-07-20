@@ -6,7 +6,7 @@ The /me command but it's 3D printed.
 ## Installation
 * Download the resource ;
 * Drag and drop it into your resources folder ;
-* Add ```start 3dme``` to you ```server.cfg```.
+* Add ```ensure 3dme``` to your server configuration file.
 
 ## How to use
 * In the chat, type /me followed by your action.
