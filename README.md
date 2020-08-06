@@ -17,25 +17,9 @@ The /me command but it's 3D printed.
 * Time on screen : ```client.lua``` line 4 : ```local displayTime = 5000```
 
 ## Updates
-#### V1.1
-* The text display an exact amount of time (thanks to @SaltyGrandpa) ;
-* Added "the person" at the beginning of the text (```Line 16``` if you want to change the language) ;
-* Using /me multiple times doesn't make it unreadable.
-#### V1.2
-* Bugs fixes ;
-* Changed the native color and removed the shadow and the outline (you can still reactivate it) ;
-* Now draw when you are close to the person (50 m).
-#### V1.3
-* Now send a chat message to the people close to the person ;
-* Can now draw a background to the text ;
-* Added the options to draw a dropshadow.
-#### V2.0
-* The command is now server sided ;
-* No longer creates logs, you will have to use a **real** log resource ;
-* No longer prints the action in the chat ;
-* Removed some design options (background and dropshadow) as it's no coherent with the idea I had on the resource ;
-* The code has been globally updated, more comments, more optimisation ;
-* Some bugs have been fixed.
+
+To see the previous changelogs, please refer to the [FiveM forum post](https://forum.cfx.re/t/release-me-but-the-text-is-3d-printed/).
+
 #### V2.1
 * Added Onesync Infinity support thanks to *@glitchdetector* ;
 * Replaced `__resource.lua` by its new version `fxmanifest.lua`.
