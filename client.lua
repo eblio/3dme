@@ -1,30 +1,9 @@
--- ############################################
--- --------------------------------------------
--- 3dme : /me command but its 3D printed
--- Author : Elio
--- Client side
--- --------------------------------------------
--- ############################################
+-- ## 3dme : client side
 
--- --------------------------------------------
--- Settings
--- --------------------------------------------
-
-local defaultScale = 0.5 -- Text scale
-local color = { r = 230, g = 230, b = 230, a = 255 } -- Text color
-local font = 0 -- Text font
-local displayTime = 5000 -- Duration to display the text (in ms)
-local distToDraw = 250 -- Min. distance to draw 
-
--- --------------------------------------------
--- Variable
--- --------------------------------------------
-
+-- ## Variables
 local pedDisplaying = {}
 
--- --------------------------------------------
--- Functions
--- --------------------------------------------
+-- ## Functions
 
 -- OBJ : draw text in 3d
 -- PARAMETERS :
@@ -37,23 +16,22 @@ local function DrawText3D(coords, text)
     -- Experimental math to scale the text down
     local scale = 200 / (GetGameplayCamFov() * dist)
 
-    --if onScreen then
+    -- Format the text
+    local c = Config.visual.color
+    SetTextColour(c.r, c.g, c.b, c.a)
+    SetTextScale(0.0, Config.visual.scale * scale)
+    SetTextFont(Config.visual.font)
+    SetTextDropshadow(0, 0, 0, 0, 55)
+    SetTextDropShadow()
+    SetTextCentre(true)
 
-        -- Format the text
-        SetTextColour(color.r, color.g, color.b, color.a)
-        SetTextScale(0.0, defaultScale * scale)
-        SetTextDropshadow(0, 0, 0, 0, 55)
-        SetTextDropShadow()
-        SetTextCentre(true)
+    -- Diplay the text
+    BeginTextCommandDisplayText("STRING")
+    AddTextComponentSubstringPlayerName(text)
+    SetDrawOrigin(coords, 0)
+    EndTextCommandDisplayText(0.0, 0.0)
+    ClearDrawOrigin()
 
-        -- Diplay the text
-        BeginTextCommandDisplayText("STRING")
-        AddTextComponentSubstringPlayerName(text)
-        SetDrawOrigin(coords, 0)
-        EndTextCommandDisplayText(0.0, 0.0)
-        ClearDrawOrigin()
-
-    --end
 end
 
 -- OBJ : handle the drawing of text above a ped head
@@ -67,7 +45,7 @@ local function Display(ped, text)
     local pedCoords = GetEntityCoords(ped)
     local dist = #(playerCoords - pedCoords)
 
-    if dist <= distToDraw then
+    if dist <= Config.visual.dist then
 
         pedDisplaying[ped] = (pedDisplaying[ped] or 1) + 1
 
@@ -75,7 +53,7 @@ local function Display(ped, text)
         local display = true
 
         Citizen.CreateThread(function()
-            Wait(displayTime)
+            Wait(Config.visual.time)
             display = false
         end)
 
@@ -95,10 +73,9 @@ local function Display(ped, text)
     end
 end
 
--- --------------------------------------------
--- Event
--- --------------------------------------------
+-- ## Events
 
+-- Share the display of 3D text
 RegisterNetEvent('3dme:shareDisplay')
 AddEventHandler('3dme:shareDisplay', function(text, serverId)
     local player = GetPlayerFromServerId(serverId)
@@ -107,3 +84,6 @@ AddEventHandler('3dme:shareDisplay', function(text, serverId)
         Display(ped, text)
     end
 end)
+
+local LANGUAGE = Config.language
+TriggerEvent('chat:addSuggestion', '/' .. Languages[LANGUAGE].commandName, Languages[LANGUAGE].commandDescription, Languages[LANGUAGE].commandSuggestion)
