@@ -1,7 +1,15 @@
--- ## 3dme : server side
+-- @desc Server-side /me handling
+-- @author Elio
+-- @version 3.0
 
--- Command
-RegisterCommand('me', function(source, args)
-    local text = "* " .. Languages[Config.language].prefix .. table.concat(args, " ") .. " *"
+-- Pre-load the language
+local lang = Languages[Config.language]
+
+-- @desc Handle /me command
+local function onMeCommand(source, args)
+    local text = "* " .. lang.prefix .. table.concat(args, " ") .. " *"
     TriggerClientEvent('3dme:shareDisplay', -1, text, source)
-end)
+end
+
+-- Register the command
+RegisterCommand(lang.commandName, onMeCommand)
