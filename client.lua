@@ -74,7 +74,7 @@ end
 -- @param text text to display
 -- @param target the target server id
 local function onShareDisplay(text, target)
-    local player = GetPlayerFromServerId(serverId)
+    local player = GetPlayerFromServerId(target)
     if player ~= -1 or target == GetPlayerServerId(PlayerId()) then
         local ped = GetPlayerPed(player)
         displayText(ped, text)
