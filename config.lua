@@ -26,4 +26,10 @@ Languages = {
         commandSuggestion = {{ name = 'action', help = '"se gratte le nez" par exemple.'}},
         prefix = 'l\'individu '
     },
+    ['dk'] = {
+        commandName = 'me',
+        commandDescription = 'Viser en handling over hovedet.',
+        commandSuggestion = {{ name = 'Handling', help = '"Tager en smøg op ad lommen" for eksempel.'}},
+        prefix = 'Personen '
+    },
 }
