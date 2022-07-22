@@ -1,15 +1,19 @@
--- @desc Server-side /me handling
--- @author Elio
--- @version 3.0
-
+-- edit by n0tst3
 -- Pre-load the language
 local lang = Languages[Config.language]
 
--- @desc Handle /me command
+-- @desc Handle /do command
+local function onDoCommand(source, args)
+    local text = "~b~* " .. lang.doPrefix .. table.concat(args, " ") .. " "
+    TriggerClientEvent('3ddo:shareDisplay', -1, text, source)
+end
+
 local function onMeCommand(source, args)
-    local text = "* " .. lang.prefix .. table.concat(args, " ") .. " *"
+    local text = "~r~** " .. lang.mePrefix .. table.concat(args, " ") .. " **"
     TriggerClientEvent('3dme:shareDisplay', -1, text, source)
 end
 
--- Register the command
-RegisterCommand(lang.commandName, onMeCommand)
+-- Register the commands
+RegisterCommand(lang.doCommandName, onDoCommand)
+
+RegisterCommand(lang.meCommandName, onMeCommand)
