@@ -4,7 +4,8 @@ A FiveM script written in LUA that implements the /me & /do command with 3D prin
 
 ## ME Command
 The /me command allows you to display a specific action above the head of a player. It's particularly used for actions that couldn't have been done in game in a roleplay context.
-/me 
+example: /me waves 
+
 <img src=https://i.imgur.com/MfjAHdw.png>
 
 ## DO Command
