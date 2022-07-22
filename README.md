@@ -1,35 +1,37 @@
-# 3D /me
-A FiveM script written in LUA that implements the /me command with 3D printing.
+# Standalone 3D /me & /do command
+# Creds @Eblio - Edit by n0tst3
+A FiveM script written in LUA that implements the /me & /do command with 3D printing.
 
+## ME Command
 The /me command allows you to display a specific action above the head of a player. It's particularly used for actions that couldn't have been done in game in a roleplay context.
+/me 
+<img src=https://i.imgur.com/MfjAHdw.png>
 
-<img src=https://imgur.com/lJZbcGA.png>
+## DO Command
+The /do command is used primarily in serious roleplay servers and is used to describe something in your enviroment or state a fact in roleplay. It is also used if you want to ask something roleplay wise.
+example: /do is the door open?
+
+<img src=https://i.imgur.com/tdysqaj.png>
 
 ## Installation
 * Download the resource ;
 * Drag and drop it into your resources folder ;
-* Add ```ensure 3dme``` to your server configuration file.
+* To Change language; Edit Config.lua > line 8 
+* Add ```ensure 3d-me-do``` to your server configuration file.
 
 ## How to use
-* In the chat, type /me followed by your action.
+* /me & /do in chat.
 
 ## Options 
 | Parameter | Line | Suggestion |
 | --- | --- | --- |
-| Color of the text | ```config.lua``` : line 6 | ```color = { r = 230, g = 230, b = 230, a = 255 }``` |
-| Font of the text | ```config.lua``` : line 7 | ```font = 0``` ([available fonts](https://imgur.com/a/oV3ciWs)) |
 | Time on screen | ```config.lua``` : line 8 | ```time = 5000``` |
 | Language | ```config.lua``` : line 4 | ```language = 'en'``` |
 
-## Updates
-To see the previous changelogs, please refer to the [FiveM forum post](https://forum.cfx.re/t/release-me-but-the-text-is-3d-printed/).
-
-#### V3.0
-* A lot of refactoring ;
-* Some major optimizations ;
-* Multiple `/me` do not stack anymore but get replaced ;
+## n0tst3 edit
+Added de lang, trans for do command
+Added /do for a more immersive rp experience
 
 ## Note
 * This may not work if are you using a custom chat resource ;
-* This could conflict with other /me scripts (disable them) ;
 * This script is fully standalone.
