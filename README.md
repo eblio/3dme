@@ -1,5 +1,5 @@
 # Standalone 3D /me & /do command
-# Creds @Eblio - Edit by n0tst3
+# Creds @Eblio modified  @n0tst3
 A FiveM script written in LUA that implements the /me & /do command with 3D printing.
 
 ## ME Command
@@ -8,7 +8,7 @@ example: /me waves
 
 <img src=https://i.imgur.com/MfjAHdw.png>
 
-## DO Command
+## DO Command 
 The /do command is used primarily in serious roleplay servers and is used to describe something in your enviroment or state a fact in roleplay. It is also used if you want to ask something roleplay wise.
 example: /do is the door open?
 
