@@ -78,6 +78,16 @@ local function onShareDisplay(text, target)
     if player ~= -1 or target == GetPlayerServerId(PlayerId()) then
         local ped = GetPlayerPed(player)
         displayText(ped, text)
+		local coords = GetEntityCoords(GetPlayerPed(-1))
+		for i = 0, 64 do
+			if NetworkIsPlayerActive(i) then
+				local ped = GetPlayerPed(id)
+				local playerCoords = GetEntityCoords(GetPlayerPed(i))
+				if(Vdist(playerCoords.x, playerCoords.y, playerCoords.z, coords.x, coords.y, coords.z) < distance)then
+					TriggerServerEvent('message:inDistanceZone', GetPlayerServerId(id), text)
+				end
+			end
+		end
     end
 end
 
